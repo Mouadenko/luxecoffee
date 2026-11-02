@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="LuxeCoffee">
+  <rect width="64" height="64" rx="14" fill="#0F0F0F"/>
+  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#D4AF37" stroke-opacity=".55"/>
+  <text x="32" y="41" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="25" letter-spacing="1" fill="#D4AF37">LC</text>
+  <path d="M18 48h28" stroke="#C59B27" stroke-width="1" stroke-opacity=".7"/>
+</svg>

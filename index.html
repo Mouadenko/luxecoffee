@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeCoffee — Cafés de spécialité &amp; capsules d'exception | Maroc</title>
+  <meta name="description" content="LuxeCoffee, maison de café de spécialité au Maroc. Origines rares, torréfaction artisanale, café en grains, moulu et capsules compatibles Nespresso. Livraison offerte dès 300 MAD.">
+  <meta name="author" content="LuxeCoffee">
+  <meta name="theme-color" content="#0F0F0F">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://mouadenko.github.io/luxecoffee/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="LuxeCoffee">
+  <meta property="og:title" content="LuxeCoffee — L'art du café, porté à son sommet">
+  <meta property="og:description" content="Cafés de spécialité &amp; capsules d'exception, torréfiés avec obsession au Maroc. Livraison 24–48h, offerte dès 300 MAD.">
+  <meta property="og:url" content="https://mouadenko.github.io/luxecoffee/">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+  <meta property="og:locale" content="fr_MA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LuxeCoffee — L'art du café, porté à son sommet">
+  <meta name="twitter:description" content="Cafés de spécialité &amp; capsules d'exception. Livraison offerte dès 300 MAD partout au Maroc.">
+  <meta name="twitter:image" content="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1200&amp;h=630&amp;q=80">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            noir: '#0F0F0F', charcoal: '#1A1A1A', panel: '#141414',
+            gold: '#D4AF37', copper: '#C59B27', cream: '#F5F2EB', muted: '#A39D90'
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif']
+          },
+          letterSpacing: { luxe: '0.28em' },
+          boxShadow: { gold: '0 20px 60px -20px rgba(212,175,55,0.35)' }
+        }
+      }
+    };
+  </script>
+  <link rel="stylesheet" href="styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Store",
+    "name": "LuxeCoffee",
+    "description": "Maison de café de spécialité au Maroc : cafés en grains, café moulu et capsules compatibles Nespresso d'exception.",
+    "url": "https://mouadenko.github.io/luxecoffee/",
+    "image": "https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200&q=80",
+    "telephone": "+212600000000",
+    "priceRange": "85–290 MAD",
+    "currenciesAccepted": "MAD",
+    "paymentAccepted": "Paiement à la livraison, Carte bancaire",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "12, rue des Orfèvres, Gauthier",
+      "addressLocality": "Casablanca",
+      "addressCountry": "MA"
+    }
+  }
+  </script>
+</head>
+<body class="bg-noir text-cream font-sans antialiased">
+  <a class="skip-link" href="#main">Aller au contenu principal</a>
+
+  <div class="announcement-bar" role="status">
+    <div class="announcement-inner">
+      <span class="announcement-item"><i data-lucide="truck" aria-hidden="true"></i> Livraison offerte dès 300 MAD</span>
+      <span class="announcement-sep" aria-hidden="true"></span>
+      <span class="announcement-item announcement-hide-mobile"><i data-lucide="banknote" aria-hidden="true"></i> Paiement à la livraison partout au Maroc</span>
+      <span class="announcement-sep announcement-hide-mobile" aria-hidden="true"></span>
+      <span class="announcement-item announcement-hide-mobile"><i data-lucide="flame" aria-hidden="true"></i> Torréfié à la commande</span>
+    </div>
+  </div>
+
+  <header id="site-header" class="site-header">
+    <div class="header-inner">
+      <a href="#accueil" class="brand">
+        <span class="brand-mark" aria-hidden="true">LC</span>
+        <span class="brand-text">
+          <span class="brand-name">LuxeCoffee</span>
+          <span class="brand-tagline">Maison de café · Maroc</span>
+        </span>
+      </a>
+
+      <nav class="desktop-nav" aria-label="Navigation principale">
+        <a href="#collection">La Collection</a>
+        <a href="#maison">La Maison</a>
+        <a href="#capsules">Capsules</a>
+        <a href="#avis">Avis</a>
+      </nav>
+
+      <div class="header-actions">
+        <a class="header-whatsapp" data-whatsapp-link href="https://wa.me/212600000000" target="_blank" rel="noopener" aria-label="Nous contacter sur WhatsApp">
+          <i data-lucide="message-circle" aria-hidden="true"></i>
+          <span>Conseil privé</span>
+        </a>
+        <button type="button" class="cart-trigger" data-action="open-cart" aria-label="Ouvrir le panier">
+          <i data-lucide="shopping-bag" aria-hidden="true"></i>
+          <span id="cart-badge" class="cart-badge" hidden>0</span>
+        </button>
+        <button type="button" class="menu-trigger" data-action="toggle-menu" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobile-menu">
+          <i data-lucide="menu" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" aria-hidden="true">
+    <div class="mobile-menu-head">
+      <span class="brand">
+        <span class="brand-mark" aria-hidden="true">LC</span>
+        <span class="brand-text"><span class="brand-name">LuxeCoffee</span><span class="brand-tagline">Maison de café · Maroc</span></span>
+      </span>
+      <button type="button" class="icon-btn" data-action="close-menu" aria-label="Fermer le menu"><i data-lucide="x" aria-hidden="true"></i></button>
+    </div>
+    <nav class="mobile-nav" aria-label="Navigation mobile">
+      <a href="#collection" data-action="close-menu"><span>01</span> La Collection</a>
+      <a href="#maison" data-action="close-menu"><span>02</span> La Maison</a>
+      <a href="#capsules" data-action="close-menu"><span>03</span> Capsules</a>
+      <a href="#avis" data-action="close-menu"><span>04</span> Avis</a>
+      <a href="#club" data-action="close-menu"><span>05</span> Le Club</a>
+    </nav>
+    <div class="mobile-menu-foot">
+      <a data-whatsapp-link href="https://wa.me/212600000000" target="_blank" rel="noopener" class="btn btn-whatsapp w-full">
+        <i data-lucide="message-circle" aria-hidden="true"></i> Commander via WhatsApp
+      </a>
+      <p>Casablanca · Livraison partout au Maroc</p>
+    </div>
+  </div>
+
+  <main id="main">
+    <section id="accueil" class="hero">
+      <div class="hero-aura" aria-hidden="true"></div>
+      <div class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow hero-enter" style="--delay: 80ms"><span class="eyebrow-line"></span> Maison de café de spécialité · Maroc</p>
+          <h1 class="hero-title hero-enter" style="--delay: 160ms">L'art du café,<br>porté à son <em>sommet</em>.</h1>
+          <p class="hero-lede hero-enter" style="--delay: 240ms">Des micro-lots sélectionnés à la main, torréfiés avec obsession à Casablanca. Une expérience rare, de la cerise à la tasse.</p>
+          <div class="hero-actions hero-enter" style="--delay: 320ms">
+            <a href="#collection" class="btn btn-gold">Découvrir la collection <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+            <a href="#maison" class="btn btn-ghost">Notre histoire</a>
+          </div>
+          <dl class="hero-stats hero-enter" style="--delay: 400ms">
+            <div><dt>Origines</dt><dd>12<span>+</span></dd></div>
+            <div><dt>Micro-lots</dt><dd>48<span>h</span></dd></div>
+            <div><dt>Torréfaction</dt><dd>Artisanale</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-visual hero-enter" style="--delay: 220ms">
+          <div class="hero-orbit" aria-hidden="true"></div>
+          <figure class="hero-frame">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&amp;fit=crop&amp;w=1200&amp;h=1500&amp;q=85" alt="Café filtre préparé à la main dans une lumière dorée" width="1200" height="1500" fetchpriority="high">
+            <figcaption class="hero-frame-caption"><span>Nº 01</span><span>Le rituel du matin</span></figcaption>
+          </figure>
+          <div class="hero-float">
+            <img src="https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&amp;fit=crop&amp;w=240&amp;h=240&amp;q=80" alt="Grains de café Éthiopie Yirgacheffe" width="240" height="240" loading="lazy">
+            <div class="hero-float-copy">
+              <span>Origine du mois</span>
+              <strong>Éthiopie Yirgacheffe</strong>
+              <span class="hero-float-price">Dès 145 MAD</span>
+            </div>
+            <button type="button" class="hero-float-btn" data-action="open-product" data-product-id="yirgacheffe" aria-label="Découvrir l'Éthiopie Yirgacheffe">
+              <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+            </button>
+          </div>
+          <div class="hero-seal" aria-hidden="true"><span>Torréfié</span><strong>à la commande</strong></div>
+        </div>
+      </div>
+      <a href="#collection" class="scroll-cue" aria-label="Explorer — descendre vers la collection"><span></span>Explorer</a>
+    </section>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Origines rares</span><span class="marquee-dot">✦</span>
+        <span>Torréfaction artisanale</span><span class="marquee-dot">✦</span>
+        <span>Livraison 24–48h</span><span class="marquee-dot">✦</span>
+        <span>Paiement à la livraison</span><span class="marquee-dot">✦</span>
+        <span>Origines rares</span><span class="marquee-dot">✦</span>
+        <span>Torréfaction artisanale</span><span class="marquee-dot">✦</span>
+        <span>Livraison 24–48h</span><span class="marquee-dot">✦</span>
+        <span>Paiement à la livraison</span><span class="marquee-dot">✦</span>
+      </div>
+    </div>
+
+    <section class="trust-strip" aria-label="Nos engagements">
+      <div class="trust-grid">
+        <div class="trust-item reveal">
+          <i data-lucide="sprout" aria-hidden="true"></i>
+          <div><strong>Origines rares</strong><span>Micro-lots tracés, cultivés en altitude.</span></div>
+        </div>
+        <div class="trust-item reveal" style="--delay: 80ms">
+          <i data-lucide="flame" aria-hidden="true"></i>
+          <div><strong>Torréfaction artisanale</strong><span>Par petits lots, à Casablanca.</span></div>
+        </div>
+        <div class="trust-item reveal" style="--delay: 160ms">
+          <i data-lucide="truck" aria-hidden="true"></i>
+          <div><strong>Livraison 24–48h</strong><span>Partout au Maroc, offerte dès 300 MAD.</span></div>
+        </div>
+        <div class="trust-item reveal" style="--delay: 240ms">
+          <i data-lucide="shield-check" aria-hidden="true"></i>
+          <div><strong>Paiement à la livraison</strong><span>Commandez en toute sérénité.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="collection" class="collection section">
+      <div class="section-head">
+        <div class="section-head-copy reveal">
+          <p class="eyebrow"><span class="eyebrow-line"></span> La Collection</p>
+          <h2 class="section-title">Des origines d'exception,<br><em>une obsession du détail</em>.</h2>
+        </div>
+        <p class="section-intro reveal" style="--delay: 100ms">Grains, moulu ou capsules : chaque création est sélectionnée pour sa personnalité, sa traçabilité et la beauté de son geste. Trouvez votre signature.</p>
+      </div>
+
+      <div class="collection-toolbar reveal">
+        <div id="category-filters" class="filter-list" role="tablist" aria-label="Filtrer les cafés par catégorie"></div>
+        <div class="sort-wrap">
+          <label for="sort-select" class="sr-only">Trier les cafés</label>
+          <i data-lucide="sliders-horizontal" aria-hidden="true"></i>
+          <select id="sort-select" aria-label="Trier les cafés">
+            <option value="featured">Sélection de la maison</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="intensity-desc">Intensité décroissante</option>
+          </select>
+          <i data-lucide="chevron-down" class="sort-chevron" aria-hidden="true"></i>
+        </div>
+      </div>
+
+      <div id="product-grid" class="product-grid" aria-live="polite"></div>
+      <noscript><p class="noscript-note">Activez JavaScript pour découvrir la collection et commander.</p></noscript>
+
+      <div class="collection-foot reveal">
+        <p id="product-count" aria-live="polite">10 créations d'exception</p>
+        <p><i data-lucide="sparkles" aria-hidden="true"></i> Torréfié à la commande · Expédié sous 24h</p>
+      </div>
+    </section>
+
+    <section class="editorial section" aria-label="Le rituel LuxeCoffee">
+      <div class="editorial-grid">
+        <figure class="editorial-media reveal">
+          <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&amp;fit=crop&amp;w=1000&amp;h=1200&amp;q=85" alt="Latte art versé délicatement dans une tasse en céramique" width="1000" height="1200" loading="lazy">
+          <figcaption class="editorial-caption"><span>Le geste juste</span><span>Chaque tasse, une attention.</span></figcaption>
+        </figure>
+        <div class="editorial-copy reveal" style="--delay: 120ms">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Le rituel</p>
+          <blockquote>« Le luxe, c'est de prendre le temps. »</blockquote>
+          <p>Un café d'exception ne se presse pas. Il se choisit, se moud à la seconde, s'infuse avec précision. Nous avons imaginé LuxeCoffee comme une maison de haute gastronomie : des matières premières rares, des gestes précis, et le plaisir de l'instant.</p>
+          <p class="editorial-signature"><span aria-hidden="true"></span> Yassine El Amrani, Maître torréfacteur</p>
+          <a href="#collection" class="text-link">Trouver votre café <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="maison" class="story section">
+      <div class="story-grid">
+        <div class="story-media reveal">
+          <img src="https://images.unsplash.com/photo-1511537190424-bbbab87ac5eb?auto=format&amp;fit=crop&amp;w=1100&amp;h=1400&amp;q=85" alt="Torréfacteur artisanal en pleine torréfaction chez LuxeCoffee" width="1100" height="1400" loading="lazy">
+          <div class="story-badge"><strong>Depuis 2018</strong><span>Casablanca · Maroc</span></div>
+          <div class="story-frame-line" aria-hidden="true"></div>
+        </div>
+        <div class="story-copy reveal" style="--delay: 100ms">
+          <p class="eyebrow"><span class="eyebrow-line"></span> La Maison</p>
+          <h2 class="section-title">Le temps,<br><em>notre plus bel ingrédient</em>.</h2>
+          <p class="story-lede">Née d'une fascination pour les grands crus, LuxeCoffee est une maison de café de spécialité indépendante. Nous parcourons les terroirs, rencontrons les producteurs et sélectionnons des micro-lots pour leur clarté aromatique.</p>
+          <p>À Casablanca, chaque lot est torréfié en petite quantité, puis reposé avant d'être expédié. Un savoir-faire lent, exigeant, résolument contemporain.</p>
+          <ol class="process-list">
+            <li><span>01</span><div><strong>La sélection</strong><p>Moins de 1% des lots dégustés rejoignent notre collection.</p></div></li>
+            <li><span>02</span><div><strong>La torréfaction</strong><p>Des courbes sur mesure, révélant le meilleur de chaque origine.</p></div></li>
+            <li><span>03</span><div><strong>Le rituel</strong><p>Des conseils d'extraction pour une tasse digne de la maison.</p></div></li>
+          </ol>
+          <a href="#collection" class="text-link">Explorer nos cafés <i data-lucide="arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </section>
+
+    <section id="capsules" class="capsules-section">
+      <div class="capsules-grid">
+        <div class="capsules-media reveal">
+          <img src="https://images.unsplash.com/photo-1570968915860-54d5c301fa9f?auto=format&amp;fit=crop&amp;w=1000&amp;h=1250&amp;q=85" alt="Café latte servi dans un verre, texture veloutée" width="1000" height="1250" loading="lazy">
+          <span class="capsules-tag">Édition Or</span>
+          <div class="capsules-ring" aria-hidden="true"></div>
+        </div>
+        <div class="capsules-copy reveal" style="--delay: 120ms">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Capsules d'exception</p>
+          <h2 class="section-title">L'or noir,<br><em>en un geste</em>.</h2>
+          <p>Nos capsules compatibles Nespresso renferment des cafés de spécialité, torréfiés pour exprimer une intensité rare. Un geste simple, un résultat de maison.</p>
+          <ul class="capsules-list">
+            <li><i data-lucide="check" aria-hidden="true"></i> Compatibles machines Nespresso</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Aluminium recyclable, sans compromis</li>
+            <li><i data-lucide="check" aria-hidden="true"></i> Boîtes de 10, 30 ou 50 capsules</li>
+          </ul>
+          <div class="capsules-actions">
+            <button type="button" class="btn btn-gold" data-action="jump-category" data-category="capsules">Découvrir les capsules <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+            <span class="capsules-from">Dès 85 MAD</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="avis" class="testimonials section">
+      <div class="testimonials-head reveal">
+        <p class="eyebrow"><span class="eyebrow-line"></span> Ils nous font confiance</p>
+        <h2 class="section-title">Une maison, <em>des rituels</em>.</h2>
+        <p>Des amateurs exigeants, à Casablanca et partout au Maroc.</p>
+      </div>
+      <div class="testimonial-grid">
+        <figure class="testimonial-card reveal">
+          <div class="testimonial-stars" role="img" aria-label="Note : 5 étoiles sur 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>« Le Yirgacheffe est d'une clarté incroyable. On retrouve le jasmin dès la première tasse. Le service est à la hauteur du café. »</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">SB</span><div><strong>Salma B.</strong><span>Casablanca · Cliente depuis 2022</span></div></figcaption>
+        </figure>
+        <figure class="testimonial-card reveal" style="--delay: 100ms">
+          <div class="testimonial-stars" role="img" aria-label="Note : 5 étoiles sur 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>« J'ai commandé via WhatsApp en deux minutes. Colis impeccable, café d'une fraîcheur remarquable. Mon espresso du matin a changé de dimension. »</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">YA</span><div><strong>Youssef A.</strong><span>Rabat · Amateur d'espresso</span></div></figcaption>
+        </figure>
+        <figure class="testimonial-card reveal" style="--delay: 200ms">
+          <div class="testimonial-stars" role="img" aria-label="Note : 5 étoiles sur 5"><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i><i data-lucide="star"></i></div>
+          <blockquote>« Les capsules Or Intense sont un vrai plaisir, même sans machine professionnelle. L'élégance du packaging fait aussi son effet. »</blockquote>
+          <figcaption><span class="avatar" aria-hidden="true">LM</span><div><strong>Lina M.</strong><span>Marrakech · Membre du Club</span></div></figcaption>
+        </figure>
+      </div>
+      <p class="testimonial-foot"><span>4,9 / 5</span> · Plus de 1 200 rituels partagés</p>
+    </section>
+
+    <section id="club" class="club-section">
+      <div class="club-panel reveal">
+        <img src="https://images.unsplash.com/photo-1580933073521-dc49ac0d4e6a?auto=format&amp;fit=crop&amp;w=1600&amp;h=900&amp;q=80" alt="Grains de café torréfiés en gros plan" width="1600" height="900" loading="lazy">
+        <div class="club-overlay" aria-hidden="true"></div>
+        <div class="club-content">
+          <p class="eyebrow"><span class="eyebrow-line"></span> Le Club LuxeCoffee</p>
+          <h2 class="section-title">L'extraordinaire,<br><em>chaque mois</em>.</h2>
+          <p>Recevez nos éditions limitées, nos conseils d'extraction et une attention offerte pour chaque commande. Rejoignez les initiés.</p>
+          <form id="newsletter-form" class="newsletter-form" novalidate>
+            <label for="newsletter-email" class="sr-only">Votre adresse e-mail</label>
+            <input type="email" id="newsletter-email" name="email" placeholder="Votre adresse e-mail" autocomplete="email" required>
+            <button type="submit" class="btn btn-gold">Rejoindre le club <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+          </form>
+          <p class="newsletter-note">Pas de bruit, seulement l'essentiel. Désinscription en un clic.</p>
+        </div>
+        <div class="club-aside" aria-hidden="true">
+          <span>Privilège membre</span>
+          <strong>Livraison<br>offerte</strong>
+          <p>dès votre première commande</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#accueil" class="brand">
+          <span class="brand-mark" aria-hidden="true">LC</span>
+          <span class="brand-text"><span class="brand-name">LuxeCoffee</span><span class="brand-tagline">Maison de café · Maroc</span></span>
+        </a>
+        <p>Cafés de spécialité &amp; capsules d'exception. Sélectionnés avec exigence, torréfiés avec passion à Casablanca.</p>
+        <div class="footer-social">
+          <button type="button" data-action="social" data-platform="Instagram" aria-label="Instagram LuxeCoffee"><i data-lucide="instagram" aria-hidden="true"></i></button>
+          <button type="button" data-action="social" data-platform="Facebook" aria-label="Facebook LuxeCoffee"><i data-lucide="facebook" aria-hidden="true"></i></button>
+          <button type="button" data-action="social" data-platform="WhatsApp" aria-label="WhatsApp LuxeCoffee"><i data-lucide="message-circle" aria-hidden="true"></i></button>
+        </div>
+      </div>
+
+      <nav class="footer-col" aria-label="La boutique">
+        <h3>La Boutique</h3>
+        <a href="#collection">Tous les cafés</a>
+        <button type="button" class="footer-link" data-action="jump-category" data-category="beans">Café en grains</button>
+        <button type="button" class="footer-link" data-action="jump-category" data-category="ground">Café moulu</button>
+        <button type="button" class="footer-link" data-action="jump-category" data-category="capsules">Capsules Nespresso</button>
+        <a href="#club">Le Club LuxeCoffee</a>
+      </nav>
+
+      <nav class="footer-col" aria-label="La maison">
+        <h3>La Maison</h3>
+        <a href="#maison">Notre histoire</a>
+        <a href="#collection">Nos origines</a>
+        <a href="#avis">Avis clients</a>
+        <a href="#club">Nous contacter</a>
+      </nav>
+
+      <div class="footer-col footer-contact">
+        <h3>Service client</h3>
+        <a data-whatsapp-link href="https://wa.me/212600000000" target="_blank" rel="noopener"><i data-lucide="message-circle" aria-hidden="true"></i> WhatsApp</a>
+        <a href="mailto:bonjour@luxecoffee.ma"><i data-lucide="mail" aria-hidden="true"></i> bonjour@luxecoffee.ma</a>
+        <a href="tel:+212600000000"><i data-lucide="phone" aria-hidden="true"></i> <span data-whatsapp-phone>+212 6 00 00 00 00</span></a>
+        <p><i data-lucide="map-pin" aria-hidden="true"></i> Gauthier, Casablanca<br><span>Livraison partout au Maroc</span></p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="year">2026</span> LuxeCoffee. Tous droits réservés.</p>
+      <div class="footer-payments" aria-label="Moyens de paiement acceptés">
+        <span>Visa</span><span>Mastercard</span><span>Paiement à la livraison</span>
+      </div>
+      <p>Conçu avec passion à Casablanca.</p>
+    </div>
+  </footer>
+
+  <a class="whatsapp-float" data-whatsapp-link href="https://wa.me/212600000000" target="_blank" rel="noopener" aria-label="Commander ou poser une question sur WhatsApp">
+    <span class="whatsapp-float-pulse" aria-hidden="true"></span>
+    <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.18 1.6 6L4 29l8.14-1.56a12.9 12.9 0 0 0 3.9.6h.01C22.68 28.04 28.08 22.64 28.08 16S22.68 3 16.04 3zm0 22.9c-1.24 0-2.46-.2-3.62-.6l-.26-.08-4.84.93.96-4.72-.17-.27a10.8 10.8 0 0 1-1.66-5.8c0-5.98 4.87-10.85 10.86-10.85 2.9 0 5.62 1.13 7.67 3.18a10.8 10.8 0 0 1 3.18 7.68c0 5.99-4.87 10.86-10.86 10.86zm5.95-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.38.25-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.87.69.79.25 1.5.22 2.07.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/></svg>
+    <span class="whatsapp-float-label">Besoin d'un conseil ?</span>
+  </a>
+
+  <div id="cart-overlay" class="overlay" data-action="close-cart" aria-hidden="true"></div>
+  <aside id="cart-drawer" class="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="cart-title" aria-hidden="true">
+    <div class="cart-head">
+      <div>
+        <p class="eyebrow">Votre sélection</p>
+        <h2 id="cart-title">Panier <span id="cart-count-label" class="cart-count-label" aria-live="polite">0 article</span></h2>
+      </div>
+      <button type="button" class="icon-btn" data-action="close-cart" aria-label="Fermer le panier"><i data-lucide="x" aria-hidden="true"></i></button>
+    </div>
+
+    <div class="cart-shipping" id="shipping-progress">
+      <div class="cart-shipping-row">
+        <i data-lucide="truck" aria-hidden="true"></i>
+        <p id="shipping-message" aria-live="polite">Livraison offerte dès 300 MAD d'achat.</p>
+      </div>
+      <div class="progress-track" role="progressbar" aria-label="Progression vers la livraison offerte" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="shipping-progressbar">
+        <div id="shipping-bar" class="progress-bar"></div>
+      </div>
+    </div>
+
+    <div id="cart-items" class="cart-items"></div>
+
+    <div id="cart-empty" class="cart-empty">
+      <span class="cart-empty-icon"><i data-lucide="coffee" aria-hidden="true"></i></span>
+      <h3>Votre panier est encore vide.</h3>
+      <p>Il reste une place pour un café d'exception dans votre journée.</p>
+      <button type="button" class="btn btn-gold" data-action="continue-shopping">Explorer la collection <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+    </div>
+
+    <div id="cart-footer" class="cart-foot" hidden>
+      <dl class="cart-totals">
+        <div><dt>Sous-total</dt><dd id="cart-subtotal">0 MAD</dd></div>
+        <div><dt>Livraison</dt><dd id="cart-shipping">30 MAD</dd></div>
+        <div class="cart-total-row"><dt>Total</dt><dd id="cart-total">0 MAD</dd></div>
+      </dl>
+      <button type="button" id="checkout-btn" class="btn btn-gold w-full" data-action="open-checkout">Commander <i data-lucide="arrow-right" aria-hidden="true"></i></button>
+      <p class="cart-note"><i data-lucide="lock" aria-hidden="true"></i> Paiement à la livraison disponible partout au Maroc.</p>
+    </div>
+  </aside>
+
+  <div id="product-overlay" class="overlay" data-action="close-product" aria-hidden="true"></div>
+  <div id="product-modal" class="modal product-modal" role="dialog" aria-modal="true" aria-labelledby="product-modal-title" aria-hidden="true">
+    <div class="modal-panel product-panel">
+      <button type="button" class="modal-close" data-action="close-product" aria-label="Fermer l'aperçu du produit"><i data-lucide="x" aria-hidden="true"></i></button>
+      <div id="product-modal-content"></div>
+    </div>
+  </div>
+
+  <div id="checkout-overlay" class="overlay" data-action="close-checkout" aria-hidden="true"></div>
+  <div id="checkout-modal" class="modal checkout-modal" role="dialog" aria-modal="true" aria-labelledby="checkout-title" aria-hidden="true">
+    <div class="modal-panel checkout-panel">
+      <header class="checkout-head">
+        <div>
+          <p class="eyebrow">Finaliser</p>
+          <h2 id="checkout-title">Votre commande</h2>
+        </div>
+        <button type="button" class="icon-btn" data-action="close-checkout" aria-label="Fermer le tunnel de commande"><i data-lucide="x" aria-hidden="true"></i></button>
+      </header>
+
+      <div id="checkout-form-view" class="checkout-body">
+        <div class="checkout-grid">
+          <form id="checkout-form" class="checkout-form" novalidate>
+            <section class="form-section">
+              <div class="form-section-title"><span>01</span><h3>Vos coordonnées</h3></div>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="customer-name">Nom complet</label>
+                  <input type="text" id="customer-name" name="name" autocomplete="name" placeholder="Votre nom et prénom" required aria-describedby="error-name">
+                  <p class="field-error" id="error-name" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="customer-phone">Téléphone</label>
+                  <input type="tel" id="customer-phone" name="phone" autocomplete="tel" placeholder="06 12 34 56 78" required aria-describedby="error-phone">
+                  <p class="field-error" id="error-phone" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="customer-city">Ville</label>
+                  <input type="text" id="customer-city" name="city" autocomplete="address-level2" list="moroccan-cities" placeholder="Casablanca" required aria-describedby="error-city">
+                  <datalist id="moroccan-cities">
+                    <option value="Casablanca"></option><option value="Rabat"></option><option value="Marrakech"></option>
+                    <option value="Fès"></option><option value="Tanger"></option><option value="Agadir"></option>
+                    <option value="Meknès"></option><option value="Oujda"></option><option value="Kénitra"></option>
+                    <option value="Tétouan"></option><option value="Salé"></option><option value="El Jadida"></option>
+                  </datalist>
+                  <p class="field-error" id="error-city" aria-live="polite"></p>
+                </div>
+                <div class="field">
+                  <label for="customer-address">Adresse complète</label>
+                  <textarea id="customer-address" name="address" rows="2" autocomplete="street-address" placeholder="Rue, numéro, appartement, quartier" required aria-describedby="error-address"></textarea>
+                  <p class="field-error" id="error-address" aria-live="polite"></p>
+                </div>
+              </div>
+            </section>
+
+            <section class="form-section">
+              <div class="form-section-title"><span>02</span><h3>Mode de paiement</h3></div>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input type="radio" name="payment" id="payment-cod" value="cod" checked>
+                  <span class="payment-option-inner">
+                    <i data-lucide="banknote" aria-hidden="true"></i>
+                    <span class="payment-option-copy"><strong>Paiement à la livraison</strong><small>Réglez en espèces à la réception.</small></span>
+                    <span class="payment-radio" aria-hidden="true"></span>
+                  </span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="payment" id="payment-card" value="card">
+                  <span class="payment-option-inner">
+                    <i data-lucide="credit-card" aria-hidden="true"></i>
+                    <span class="payment-option-copy"><strong>Carte bancaire</strong><small>Paiement simulé, sans débit réel.</small></span>
+                    <span class="payment-radio" aria-hidden="true"></span>
+                  </span>
+                </label>
+              </div>
+
+              <div id="card-fields" class="card-fields" hidden>
+                <div class="form-grid">
+                  <div class="field field-full">
+                    <label for="card-number">Numéro de carte</label>
+                    <input type="text" id="card-number" name="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="4242 4242 4242 4242" maxlength="19" aria-describedby="error-card-number">
+                    <p class="field-error" id="error-card-number" aria-live="polite"></p>
+                  </div>
+                  <div class="field">
+                    <label for="card-expiry">Expiration</label>
+                    <input type="text" id="card-expiry" name="cardExpiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5" aria-describedby="error-card-expiry">
+                    <p class="field-error" id="error-card-expiry" aria-live="polite"></p>
+                  </div>
+                  <div class="field">
+                    <label for="card-cvv">CVV</label>
+                    <input type="text" id="card-cvv" name="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4" aria-describedby="error-card-cvv">
+                    <p class="field-error" id="error-card-cvv" aria-live="polite"></p>
+                  </div>
+                </div>
+                <p class="card-simulation"><i data-lucide="lock" aria-hidden="true"></i> Simulation sécurisée — aucune carte ne sera débitée.</p>
+              </div>
+            </section>
+
+            <div id="form-error" class="form-error" role="alert" hidden></div>
+
+            <div class="checkout-actions">
+              <button type="button" class="btn btn-gold" data-action="confirm-order">Confirmer la commande <i data-lucide="check" aria-hidden="true"></i></button>
+              <button type="button" class="btn btn-whatsapp" data-action="whatsapp-order">
+                <svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 3C9.4 3 4 8.4 4 15.04c0 2.12.55 4.18 1.6 6L4 29l8.14-1.56a12.9 12.9 0 0 0 3.9.6h.01C22.68 28.04 28.08 22.64 28.08 16S22.68 3 16.04 3zm0 22.9c-1.24 0-2.46-.2-3.62-.6l-.26-.08-4.84.93.96-4.72-.17-.27a10.8 10.8 0 0 1-1.66-5.8c0-5.98 4.87-10.85 10.86-10.85 2.9 0 5.62 1.13 7.67 3.18a10.8 10.8 0 0 1 3.18 7.68c0 5.99-4.87 10.86-10.86 10.86zm5.95-8.13c-.33-.16-1.93-.95-2.23-1.06-.3-.11-.52-.16-.74.17-.22.33-.85 1.06-1.04 1.28-.19.22-.38.25-.7.08-.33-.16-1.38-.51-2.63-1.62-.97-.87-1.63-1.94-1.82-2.27-.19-.33-.02-.5.14-.66.15-.15.33-.38.49-.57.16-.19.22-.33.33-.55.11-.22.05-.41-.03-.57-.08-.16-.74-1.78-1.01-2.44-.27-.64-.54-.55-.74-.56h-.63c-.22 0-.57.08-.87.41-.3.33-1.14 1.11-1.14 2.71s1.17 3.15 1.33 3.37c.16.22 2.3 3.51 5.57 4.92.78.34 1.39.54 1.87.69.79.25 1.5.22 2.07.13.63-.09 1.93-.79 2.2-1.55.27-.76.27-1.41.19-1.55-.08-.14-.3-.22-.63-.38z"/></svg>
+                Commander en 1 clic via WhatsApp
+              </button>
+            </div>
+            <p class="checkout-terms">En confirmant, vous acceptez d'être contacté par notre équipe pour valider la livraison. Aucun paiement n'est débité sur le site.</p>
+          </form>
+
+          <aside class="checkout-summary" aria-label="Récapitulatif de la commande">
+            <div class="summary-head"><h3>Votre sélection</h3><span id="checkout-count">0 article</span></div>
+            <div id="checkout-items" class="summary-items"></div>
+            <p id="checkout-shipping-message" class="summary-shipping-message"></p>
+            <dl class="summary-totals">
+              <div><dt>Sous-total</dt><dd id="checkout-subtotal">0 MAD</dd></div>
+              <div><dt>Livraison</dt><dd id="checkout-shipping">30 MAD</dd></div>
+              <div class="summary-total-row"><dt>Total</dt><dd id="checkout-total">0 MAD</dd></div>
+            </dl>
+            <div class="summary-payment"><span>Paiement</span><strong id="checkout-payment-label">Paiement à la livraison</strong></div>
+            <div class="summary-delivery"><i data-lucide="truck" aria-hidden="true"></i><div><strong>Livraison 24–48h</strong><span>Partout au Maroc · Suivi WhatsApp</span></div></div>
+          </aside>
+        </div>
+      </div>
+
+      <div id="checkout-success" class="checkout-success" hidden></div>
+    </div>
+  </div>
+
+  <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="false"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
