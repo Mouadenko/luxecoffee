@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LuxeCoffee | Cafés de Spécialité &amp; Capsules d'Exception au Maroc</title>
+  <meta name="description" content="Maison de haute torréfaction au Maroc. Découvrez nos cafés de spécialité en grains, moulus à la demande et capsules compatibles Nespresso. Livraison partout au Maroc." />
+
+  <!-- Google Fonts : Playfair Display, Cinzel & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&amp;family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&amp;family=Plus+Jakarta+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet" />
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            luxe: {
+              black: '#0F0F0F',
+              charcoal: '#1A1A1A',
+              card: '#141414',
+              gold: '#D4AF37',
+              copper: '#C59B27',
+              cream: '#F5F2EB',
+              muted: '#A39E93'
+            }
+          },
+          fontFamily: {
+            serif: ['"Playfair Display"', 'Georgia', 'serif'],
+            cinzel: ['"Cinzel"', 'Georgia', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif']
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Custom Luxury Styles -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="bg-luxe-black text-luxe-cream antialiased selection:bg-luxe-gold selection:text-luxe-black min-h-screen flex flex-col">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-gradient-to-r from-[#141109] via-[#211B0B] to-[#141109] border-b border-luxe-gold/25 text-xs sm:text-sm py-2.5 px-4 text-center">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-center gap-x-6 gap-y-1 text-luxe-cream/90">
+      <span class="inline-flex items-center gap-2">
+        <i class="fa-solid fa-crown text-luxe-gold text-xs"></i>
+        <span>Livraison Express <strong class="text-luxe-gold">GRATUITE dès 300 MAD</strong> partout au Maroc (30 MAD en dessous)</span>
+      </span>
+      <span class="hidden md:inline text-luxe-gold/40">|</span>
+      <span class="hidden sm:inline-flex items-center gap-1.5 text-luxe-cream/75">
+        <i class="fa-solid fa-fire-flame-curved text-luxe-copper text-xs"></i>
+        <span>Torréfaction artisanale fraîche chaque semaine</span>
+      </span>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-40 bg-luxe-black/90 backdrop-blur-md border-b border-luxe-gold/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <!-- Brand Logo -->
+      <a href="#" class="flex items-center gap-3 group focus:outline-none">
+        <div class="w-11 h-11 rounded-full bg-luxe-charcoal border border-luxe-gold/50 flex items-center justify-center shadow-lg group-hover:border-luxe-gold transition-colors">
+          <i class="fa-solid fa-mug-hot text-luxe-gold text-lg"></i>
+        </div>
+        <div>
+          <span class="font-cinzel text-xl sm:text-2xl font-bold tracking-[0.18em] text-gold-gradient block leading-none">
+            LUXECOFFEE
+          </span>
+          <span class="text-[10px] tracking-[0.28em] uppercase text-luxe-muted block mt-1">
+            Haute Torréfaction · Maroc
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation -->
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-luxe-cream/80">
+        <a href="#catalogue" class="hover:text-luxe-gold transition-colors">Collection Grands Crus</a>
+        <a href="#catalogue" data-nav-filter="Capsules Compatibles Nespresso" class="hover:text-luxe-gold transition-colors">Capsules Nespresso®</a>
+        <a href="#savoir-faire" class="hover:text-luxe-gold transition-colors">Maison &amp; Savoir-Faire</a>
+        <a href="#avis" class="hover:text-luxe-gold transition-colors">Avis Connaisseurs</a>
+      </nav>
+
+      <!-- Actions : Cart Button & Mobile Menu Trigger -->
+      <div class="flex items-center gap-3">
+        <button
+          id="open-cart-btn"
+          type="button"
+          aria-label="Ouvrir le panier"
+          class="relative inline-flex items-center gap-3 px-4 py-2.5 rounded-full bg-luxe-charcoal border border-luxe-gold/40 hover:border-luxe-gold text-luxe-cream transition-all shadow-md hover:shadow-luxe-gold/10"
+        >
+          <i class="fa-solid fa-bag-shopping text-luxe-gold"></i>
+          <span class="hidden sm:inline text-sm font-medium">Panier</span>
+          <span id="header-cart-total" class="hidden lg:inline text-xs font-semibold text-luxe-gold border-l border-luxe-gold/25 pl-2.5">
+            0 MAD
+          </span>
+          <span
+            id="cart-count-badge"
+            class="w-6 h-6 rounded-full bg-gold-gradient text-luxe-black text-xs font-bold flex items-center justify-center shadow"
+          >
+            0
+          </span>
+        </button>
+
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Menu principal"
+          class="md:hidden w-10 h-10 rounded-full bg-luxe-charcoal border border-luxe-gold/30 flex items-center justify-center text-luxe-cream hover:text-luxe-gold"
+        >
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-luxe-charcoal border-b border-luxe-gold/20 px-6 py-4 space-y-3 text-sm">
+      <a href="#catalogue" class="block py-2 text-luxe-cream hover:text-luxe-gold border-b border-white/5">Collection Grands Crus</a>
+      <a href="#catalogue" data-nav-filter="Capsules Compatibles Nespresso" class="block py-2 text-luxe-cream hover:text-luxe-gold border-b border-white/5">Capsules Compatibles Nespresso</a>
+      <a href="#savoir-faire" class="block py-2 text-luxe-cream hover:text-luxe-gold border-b border-white/5">Maison &amp; Savoir-Faire</a>
+      <a href="#avis" class="block py-2 text-luxe-cream hover:text-luxe-gold">Avis Connaisseurs</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="flex-grow">
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-14 sm:py-20 lg:py-28 hero-glow border-b border-luxe-gold/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <!-- Left Column: Brand Story & CTAs -->
+          <div class="lg:col-span-7 space-y-6 text-left">
+            <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-luxe-charcoal border border-luxe-gold/35 text-luxe-gold text-xs uppercase tracking-[0.2em] font-semibold">
+              <span class="w-2 h-2 rounded-full bg-luxe-gold animate-pulse"></span>
+              <span>Torréfaction de Haute Gastronomie</span>
+            </div>
+
+            <h1 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold leading-[1.12] tracking-tight text-luxe-cream">
+              L'Or Noir des <br class="hidden sm:inline" />
+              <span class="text-gold-gradient italic font-normal">Plus Grands Terroirs</span>
+            </h1>
+
+            <p class="text-base sm:text-lg text-luxe-cream/80 max-w-2xl leading-relaxed font-light">
+              Des hauts plateaux d'Éthiopie Yirgacheffe aux sommets brumeux des Blue Mountains de Jamaïque. Nos grains d'exception sont torréfiés artisanalement au Maroc et préparés selon votre rituel : en grains, moulus sur-mesure ou en capsules d'aluminium scellées.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a
+                href="#catalogue"
+                class="inline-flex items-center gap-3 px-7 py-4 rounded-full bg-gold-gradient text-luxe-black font-bold text-sm uppercase tracking-wider shadow-lg shadow-luxe-gold/20 hover:scale-[1.02] transition-all"
+              >
+                <span>Explorer la Collection</span>
+                <i class="fa-solid fa-arrow-right text-xs"></i>
+              </a>
+              <a
+                href="#catalogue"
+                data-nav-filter="Capsules Compatibles Nespresso"
+                class="inline-flex items-center gap-2.5 px-6 py-4 rounded-full bg-luxe-charcoal border border-luxe-gold/40 hover:border-luxe-gold text-luxe-cream font-medium text-sm transition-all"
+              >
+                <i class="fa-solid fa-capsules text-luxe-gold"></i>
+                <span>Capsules Nespresso®</span>
+              </a>
+            </div>
+
+            <!-- Key Luxury Highlights -->
+            <div class="grid grid-cols-3 gap-4 pt-6 border-t border-luxe-gold/15 max-w-xl">
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-luxe-gold">SCA 88+</p>
+                <p class="text-xs text-luxe-muted mt-0.5">Grands Crus de Spécialité</p>
+              </div>
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-luxe-gold">100%</p>
+                <p class="text-xs text-luxe-muted mt-0.5">Fraîcheur Torréfiée à la Demande</p>
+              </div>
+              <div>
+                <p class="font-serif text-2xl sm:text-3xl font-bold text-luxe-gold">24/48h</p>
+                <p class="text-xs text-luxe-muted mt-0.5">Livraison Express Maroc</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Visual Showcase -->
+          <div class="lg:col-span-5 relative">
+            <div class="relative rounded-3xl overflow-hidden border border-luxe-gold/30 shadow-2xl bg-luxe-charcoal">
+              <img
+                src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&amp;fit=crop&amp;w=1000&amp;q=85"
+                alt="Expresso de spécialité LuxeCoffee"
+                class="w-full h-[380px] sm:h-[460px] object-cover"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-luxe-black via-transparent to-transparent"></div>
+
+              <!-- Floating Sommelier Badge -->
+              <div class="absolute bottom-5 left-5 right-5 p-4 rounded-2xl bg-luxe-black/85 backdrop-blur-md border border-luxe-gold/35 flex items-center justify-between">
+                <div>
+                  <span class="text-[11px] uppercase tracking-widest text-luxe-gold block font-semibold">Cuvée du Maître Torréfacteur</span>
+                  <p class="font-serif text-lg font-bold text-luxe-cream">Jamaïque Blue Mountain &amp; Geisha</p>
+                  <p class="text-xs text-luxe-muted">Notes de Jasmin, Cacao Fin &amp; Bergamote</p>
+                </div>
+                <div class="text-right">
+                  <span class="text-xs text-luxe-muted block">Dès</span>
+                  <span class="font-serif text-xl font-bold text-luxe-gold">85 MAD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Catalogue Section -->
+    <section id="catalogue" class="py-16 sm:py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Heading -->
+      <div class="text-center max-w-3xl mx-auto mb-12 space-y-3">
+        <span class="text-xs uppercase tracking-[0.28em] text-luxe-gold font-semibold block">
+          Haute Gastronomie Caféinée
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-bold text-luxe-cream">
+          La Collection <span class="text-gold-gradient italic font-normal">LuxeCoffee</span>
+        </h2>
+        <p class="text-sm sm:text-base text-luxe-muted">
+          Personnalisez le poids, la mouture ou le coffret de capsules directement sur chaque création. Le tarif s'ajuste instantanément en Dirhams Marocains (MAD).
+        </p>
+      </div>
+
+      <!-- Filter Tabs & Search Controls -->
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-4 mb-10 pb-6 border-b border-luxe-gold/15">
+        <!-- Category Filter Pills -->
+        <div id="category-filters" class="flex flex-wrap items-center justify-center gap-2.5 w-full lg:w-auto" role="tablist" aria-label="Filtrer par catégorie">
+          <button
+            type="button"
+            data-category="Tous"
+            class="filter-btn active px-5 py-2.5 rounded-full text-xs sm:text-sm tracking-wide"
+          >
+            Tous
+          </button>
+          <button
+            type="button"
+            data-category="Café en Grains"
+            class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm tracking-wide flex items-center gap-2"
+          >
+            <i class="fa-solid fa-seedling text-xs"></i>
+            <span>Café en Grains</span>
+          </button>
+          <button
+            type="button"
+            data-category="Café Moulu"
+            class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm tracking-wide flex items-center gap-2"
+          >
+            <i class="fa-solid fa-mortar-pestle text-xs"></i>
+            <span>Café Moulu</span>
+          </button>
+          <button
+            type="button"
+            data-category="Capsules Compatibles Nespresso"
+            class="filter-btn px-5 py-2.5 rounded-full text-xs sm:text-sm tracking-wide flex items-center gap-2"
+          >
+            <i class="fa-solid fa-capsules text-xs"></i>
+            <span>Capsules Compatibles Nespresso</span>
+          </button>
+        </div>
+
+        <!-- Search & Sort -->
+        <div class="flex items-center gap-3 w-full sm:w-auto justify-center">
+          <div class="relative flex-grow sm:w-60">
+            <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-luxe-muted text-xs"></i>
+            <input
+              id="product-search-input"
+              type="search"
+              placeholder="Origine, note aromatique..."
+              class="luxe-input w-full pl-9 pr-3 py-2 rounded-full text-xs sm:text-sm placeholder:text-luxe-muted/60"
+            />
+          </div>
+          <select
+            id="product-sort-select"
+            aria-label="Trier les produits"
+            class="luxe-input px-3.5 py-2 rounded-full text-xs sm:text-sm cursor-pointer"
+          >
+            <option value="featured">Sélection Sommelier</option>
+            <option value="price-asc">Prix croissant</option>
+            <option value="price-desc">Prix décroissant</option>
+            <option value="intensity-desc">Intensité forte</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Active Filter Status -->
+      <div class="flex items-center justify-between text-xs text-luxe-muted mb-6">
+        <span id="products-count-label">Affichage de nos Grands Crus</span>
+        <span class="text-luxe-gold/90 hidden sm:inline">
+          <i class="fa-solid fa-truck-fast mr-1"></i> Livraison offerte dès 300 MAD
+        </span>
+      </div>
+
+      <!-- Products Grid -->
+      <div id="products-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Populated dynamically by app.js -->
+      </div>
+    </section>
+
+    <!-- Savoir-Faire Section -->
+    <section id="savoir-faire" class="py-16 sm:py-24 bg-luxe-charcoal/70 border-y border-luxe-gold/15">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
+          <span class="text-xs uppercase tracking-[0.28em] text-luxe-gold font-semibold block">
+            L'Exigence d'une Grande Maison
+          </span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-luxe-cream">
+            Quatre Piliers d'<span class="text-gold-gradient italic font-normal">Excellence</span>
+          </h2>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="p-6 rounded-2xl bg-luxe-black/80 border border-luxe-gold/20 hover:border-luxe-gold/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-luxe-charcoal border border-luxe-gold/40 flex items-center justify-center text-luxe-gold text-xl mb-4">
+              <i class="fa-solid fa-mountain-sun"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-luxe-cream mb-2">Terroirs de Haute Altitude</h3>
+            <p class="text-xs sm:text-sm text-luxe-muted leading-relaxed">
+              Cueillis à la main entre 1 800m et 2 200m d'altitude, nos grains mûrissent lentement pour développer une complexité aromatique rare.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-luxe-black/80 border border-luxe-gold/20 hover:border-luxe-gold/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-luxe-charcoal border border-luxe-gold/40 flex items-center justify-center text-luxe-gold text-xl mb-4">
+              <i class="fa-solid fa-fire"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-luxe-cream mb-2">Torréfaction Lente Robe de Moine</h3>
+            <p class="text-xs sm:text-sm text-luxe-muted leading-relaxed">
+              Nos maîtres torréfacteurs révèlent les huiles essentielles de chaque cru grâce à une cuisson douce au tambour traditionnel.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-luxe-black/80 border border-luxe-gold/20 hover:border-luxe-gold/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-luxe-charcoal border border-luxe-gold/40 flex items-center justify-center text-luxe-gold text-xl mb-4">
+              <i class="fa-solid fa-sliders"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-luxe-cream mb-2">Mouture Calibrée à la Minute</h3>
+            <p class="text-xs sm:text-sm text-luxe-muted leading-relaxed">
+              Expresso, Filtre V60, Presse Française ou Cafetière Italienne : votre café est moulu juste avant l'expédition selon votre équipement.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-luxe-black/80 border border-luxe-gold/20 hover:border-luxe-gold/50 transition-all">
+            <div class="w-12 h-12 rounded-xl bg-luxe-charcoal border border-luxe-gold/40 flex items-center justify-center text-luxe-gold text-xl mb-4">
+              <i class="fa-solid fa-gem"></i>
+            </div>
+            <h3 class="font-serif text-lg font-bold text-luxe-cream mb-2">Capsules Or Hermétiques</h3>
+            <p class="text-xs sm:text-sm text-luxe-muted leading-relaxed">
+              Nos capsules en aluminium recyclable préservent 100% des arômes volatils pour une crema dense et dorée sur machines Nespresso®.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="avis" class="py-16 sm:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto mb-12">
+        <span class="text-xs uppercase tracking-[0.28em] text-luxe-gold font-semibold block mb-2">
+          Cercle des Épicuriens
+        </span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-luxe-cream">
+          Ce Qu'en Disent Nos <span class="text-gold-gradient italic font-normal">Connaisseurs</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <article class="p-6 rounded-2xl bg-luxe-charcoal border border-luxe-gold/20 flex flex-col justify-between">
+          <div>
+            <div class="flex text-luxe-gold text-xs gap-1 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-luxe-cream/90 italic leading-relaxed mb-4">
+              « Le Colombie Geisha en grains est d'une finesse absolue. Des notes florales de jasmin et de bergamote dignes des meilleurs coffee shops parisiens. Livré en 24h à Casablanca. »
+            </p>
+          </div>
+          <div class="border-t border-white/10 pt-3 flex items-center justify-between text-xs">
+            <span class="font-semibold text-luxe-cream">Karim B. · Casablanca</span>
+            <span class="text-luxe-gold">Client Vérifié</span>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl bg-luxe-charcoal border border-luxe-gold/20 flex flex-col justify-between">
+          <div>
+            <div class="flex text-luxe-gold text-xs gap-1 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-luxe-cream/90 italic leading-relaxed mb-4">
+              « Les Capsules Or Intense N°10 offrent une crema épaisse et un goût puissant de chocolat noir sans aucune amertume. Le coffret de 50 capsules est devenu indispensable au bureau. »
+            </p>
+          </div>
+          <div class="border-t border-white/10 pt-3 flex items-center justify-between text-xs">
+            <span class="font-semibold text-luxe-cream">Sofia M. · Rabat</span>
+            <span class="text-luxe-gold">Cliente Vérifiée</span>
+          </div>
+        </article>
+
+        <article class="p-6 rounded-2xl bg-luxe-charcoal border border-luxe-gold/20 flex flex-col justify-between">
+          <div>
+            <div class="flex text-luxe-gold text-xs gap-1 mb-4">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-sm text-luxe-cream/90 italic leading-relaxed mb-4">
+              « Nous servons l'Espresso Royal Gold moulu pour cafetière italienne dans notre Riad à Marrakech. Nos hôtes nous demandent systématiquement le nom de notre maison de café ! »
+            </p>
+          </div>
+          <div class="border-t border-white/10 pt-3 flex items-center justify-between text-xs">
+            <span class="font-semibold text-luxe-cream">Youssef E. · Marrakech</span>
+            <span class="text-luxe-gold">Client Vérifié</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Slide-Over Cart Drawer -->
+  <div id="cart-backdrop" class="cart-backdrop fixed inset-0 z-50" aria-hidden="true"></div>
+
+  <aside
+    id="cart-drawer"
+    class="cart-drawer fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-luxe-charcoal border-l border-luxe-gold/30 shadow-2xl flex flex-col"
+    aria-label="Votre panier LuxeCoffee"
+  >
+    <!-- Drawer Header -->
+    <div class="px-6 py-5 border-b border-luxe-gold/20 flex items-center justify-between bg-luxe-black">
+      <div class="flex items-center gap-3">
+        <i class="fa-solid fa-bag-shopping text-luxe-gold text-lg"></i>
+        <div>
+          <h2 class="font-serif text-xl font-bold text-luxe-cream">Votre Panier</h2>
+          <p id="cart-drawer-subtitle" class="text-xs text-luxe-muted">Sélection de haute torréfaction</p>
+        </div>
+      </div>
+      <button
+        id="close-cart-btn"
+        type="button"
+        aria-label="Fermer le panier"
+        class="w-9 h-9 rounded-full bg-luxe-charcoal border border-white/10 hover:border-luxe-gold text-luxe-cream flex items-center justify-center transition-colors"
+      >
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </div>
+
+    <!-- Free Shipping Progress Bar -->
+    <div id="shipping-progress-container" class="px-6 py-3.5 bg-[#14120C] border-b border-luxe-gold/20">
+      <div class="flex items-center justify-between text-xs mb-2">
+        <span id="shipping-progress-text" class="font-medium text-luxe-cream">
+          Plus que <strong class="text-luxe-gold">300 MAD</strong> pour profiter de la livraison gratuite !
+        </span>
+        <span id="shipping-progress-percent" class="text-luxe-gold font-bold">0%</span>
+      </div>
+      <div class="w-full h-2 rounded-full bg-black/70 overflow-hidden border border-luxe-gold/20">
+        <div id="shipping-progress-bar" class="shipping-progress-bar h-full rounded-full" style="width: 0%"></div>
+      </div>
+    </div>
+
+    <!-- Cart Items Scrollable Area -->
+    <div id="cart-items-container" class="flex-grow overflow-y-auto px-6 py-4 space-y-4">
+      <!-- Populated dynamically by app.js -->
+    </div>
+
+    <!-- Drawer Footer Summary -->
+    <div class="p-6 bg-luxe-black border-t border-luxe-gold/25 space-y-4">
+      <div class="space-y-2 text-sm">
+        <div class="flex items-center justify-between text-luxe-muted">
+          <span>Sous-total</span>
+          <span id="cart-subtotal" class="font-medium text-luxe-cream">0 MAD</span>
+        </div>
+        <div class="flex items-center justify-between text-luxe-muted">
+          <span>Livraison Express (Maroc)</span>
+          <span id="cart-shipping" class="font-medium text-luxe-cream">30 MAD</span>
+        </div>
+        <div class="flex items-center justify-between text-base sm:text-lg font-bold pt-2 border-t border-white/10">
+          <span class="font-serif text-luxe-cream">Total TTC</span>
+          <span id="cart-total" class="font-serif text-xl text-luxe-gold">0 MAD</span>
+        </div>
+      </div>
+
+      <div class="space-y-2.5">
+        <button
+          id="open-checkout-btn"
+          type="button"
+          class="w-full py-3.5 px-6 rounded-full bg-gold-gradient text-luxe-black font-bold text-sm uppercase tracking-wider shadow-lg hover:scale-[1.01] transition-all flex items-center justify-center gap-2 disabled:opacity-40 disabled:pointer-events-none"
+        >
+          <span>Commander</span>
+          <i class="fa-solid fa-arrow-right text-xs"></i>
+        </button>
+
+        <button
+          id="clear-cart-btn"
+          type="button"
+          class="w-full py-2 text-xs text-luxe-muted hover:text-red-400 transition-colors"
+        >
+          Vider le panier
+        </button>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Hybrid Checkout Modal (Site Confirmation + 1-Click WhatsApp) -->
+  <div
+    id="checkout-modal"
+    class="modal-backdrop fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="checkout-modal-title"
+  >
+    <div class="modal-panel relative w-full max-w-2xl rounded-3xl bg-luxe-charcoal border border-luxe-gold/40 shadow-2xl overflow-hidden my-8">
+
+      <!-- Modal Top Header -->
+      <div class="px-6 sm:px-8 py-5 bg-luxe-black border-b border-luxe-gold/20 flex items-center justify-between">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-full bg-luxe-charcoal border border-luxe-gold/40 flex items-center justify-center text-luxe-gold">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
+          <div>
+            <h3 id="checkout-modal-title" class="font-serif text-xl font-bold text-luxe-cream">
+              Finaliser Votre Commande
+            </h3>
+            <p class="text-xs text-luxe-muted">Expédition rapide sous 24/48h partout au Maroc</p>
+          </div>
+        </div>
+        <button
+          id="close-checkout-btn"
+          type="button"
+          aria-label="Fermer la fenêtre de commande"
+          class="w-9 h-9 rounded-full bg-luxe-charcoal border border-white/10 hover:border-luxe-gold text-luxe-cream flex items-center justify-center"
+        >
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+
+      <!-- STEP 1: Checkout Form View -->
+      <div id="checkout-form-view" class="p-6 sm:p-8 max-h-[82vh] overflow-y-auto space-y-6">
+        <!-- Quick Order Banner -->
+        <div class="p-4 rounded-2xl bg-luxe-black border border-luxe-gold/25 flex flex-wrap items-center justify-between gap-2">
+          <div class="text-xs sm:text-sm">
+            <span class="text-luxe-muted">Récapitulatif :</span>
+            <strong id="checkout-summary-count" class="text-luxe-cream ml-1">0 article(s)</strong>
+            <span id="checkout-summary-shipping" class="ml-2 text-xs px-2 py-0.5 rounded-full bg-luxe-gold/15 text-luxe-gold">Livraison 30 MAD</span>
+          </div>
+          <div class="font-serif text-lg font-bold text-luxe-gold" id="checkout-summary-total">
+            0 MAD
+          </div>
+        </div>
+
+        <!-- Error Message Box -->
+        <div id="checkout-error" class="hidden p-3.5 rounded-xl bg-red-950/70 border border-red-500/50 text-red-200 text-xs sm:text-sm flex items-center gap-2.5">
+          <i class="fa-solid fa-circle-exclamation text-red-400"></i>
+          <span id="checkout-error-text">Veuillez renseigner tous les champs obligatoires.</span>
+        </div>
+
+        <form id="checkout-form" class="space-y-4" novalidate>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="customer-name" class="block text-xs uppercase tracking-wider text-luxe-muted mb-1.5">
+                Nom complet <span class="text-luxe-gold">*</span>
+              </label>
+              <input
+                id="customer-name"
+                name="fullName"
+                type="text"
+                required
+                placeholder="Ex: Moulay Youssef Alami"
+                class="luxe-input w-full px-4 py-3 rounded-xl text-sm"
+              />
+            </div>
+
+            <div>
+              <label for="customer-phone" class="block text-xs uppercase tracking-wider text-luxe-muted mb-1.5">
+                Téléphone (Maroc) <span class="text-luxe-gold">*</span>
+              </label>
+              <input
+                id="customer-phone"
+                name="phone"
+                type="tel"
+                required
+                placeholder="Ex: 06 61 23 45 67"
+                class="luxe-input w-full px-4 py-3 rounded-xl text-sm"
+              />
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label for="customer-city" class="block text-xs uppercase tracking-wider text-luxe-muted mb-1.5">
+                Ville <span class="text-luxe-gold">*</span>
+              </label>
+              <select
+                id="customer-city"
+                name="city"
+                required
+                class="luxe-input w-full px-4 py-3 rounded-xl text-sm"
+              >
+                <option value="">Sélectionnez votre ville</option>
+                <option value="Casablanca">Casablanca</option>
+                <option value="Rabat">Rabat</option>
+                <option value="Marrakech">Marrakech</option>
+                <option value="Tanger">Tanger</option>
+                <option value="Fès">Fès</option>
+                <option value="Agadir">Agadir</option>
+                <option value="Meknès">Meknès</option>
+                <option value="Oujda">Oujda</option>
+                <option value="Kénitra">Kénitra</option>
+                <option value="Tétouan">Tétouan</option>
+                <option value="El Jadida">El Jadida</option>
+                <option value="Mohammédia">Mohammédia</option>
+                <option value="Autre ville (Maroc)">Autre ville (Maroc)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="customer-address" class="block text-xs uppercase tracking-wider text-luxe-muted mb-1.5">
+                Adresse complète <span class="text-luxe-gold">*</span>
+              </label>
+              <input
+                id="customer-address"
+                name="address"
+                type="text"
+                required
+                placeholder="N°, Rue, Quartier, Résidence..."
+                class="luxe-input w-full px-4 py-3 rounded-xl text-sm"
+              />
+            </div>
+          </div>
+
+          <!-- Payment Method Selection -->
+          <div class="pt-2">
+            <span class="block text-xs uppercase tracking-wider text-luxe-muted mb-2.5">
+              Mode de paiement <span class="text-luxe-gold">*</span>
+            </span>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-luxe-black border border-luxe-gold/30 cursor-pointer hover:border-luxe-gold transition-colors">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Paiement à la livraison (Cash on Delivery)"
+                  checked
+                  class="accent-[#D4AF37] w-4 h-4"
+                />
+                <div class="text-xs sm:text-sm">
+                  <span class="font-semibold text-luxe-cream block">Paiement à la livraison</span>
+                  <span class="text-[11px] text-luxe-muted">En espèces à la réception (COD)</span>
+                </div>
+              </label>
+
+              <label class="flex items-center gap-3 p-3.5 rounded-xl bg-luxe-black border border-luxe-gold/30 cursor-pointer hover:border-luxe-gold transition-colors">
+                <input
+                  type="radio"
+                  name="paymentMethod"
+                  value="Carte Bancaire (CMI / Visa / Mastercard)"
+                  class="accent-[#D4AF37] w-4 h-4"
+                />
+                <div class="text-xs sm:text-sm">
+                  <span class="font-semibold text-luxe-cream block">Carte Bancaire (Simulée)</span>
+                  <span class="text-[11px] text-luxe-muted">CMI, Visa, Mastercard sécurisé</span>
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <!-- Simulated Credit Card Box (Shown when Carte Bancaire is chosen) -->
+          <div id="simulated-card-fields" class="hidden p-4 rounded-xl bg-luxe-black/90 border border-luxe-gold/30 space-y-3">
+            <div class="flex items-center justify-between text-xs text-luxe-gold">
+              <span><i class="fa-solid fa-lock mr-1.5"></i>Terminal CMI / 3D Secure (Mode Démonstration)</span>
+              <span class="flex gap-1.5 text-base">
+                <i class="fa-brands fa-cc-visa"></i>
+                <i class="fa-brands fa-cc-mastercard"></i>
+              </span>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <input
+                type="text"
+                placeholder="4532 •••• •••• 8891"
+                maxlength="19"
+                class="luxe-input sm:col-span-2 px-3 py-2 rounded-lg text-xs"
+              />
+              <div class="grid grid-cols-2 gap-2">
+                <input type="text" placeholder="MM/AA" maxlength="5" class="luxe-input px-2.5 py-2 rounded-lg text-xs" />
+                <input type="text" placeholder="CVC" maxlength="4" class="luxe-input px-2.5 py-2 rounded-lg text-xs" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Dual Validation Buttons -->
+          <div class="pt-4 space-y-3 border-t border-white/10">
+            <button
+              id="confirm-site-order-btn"
+              type="button"
+              class="w-full py-4 px-6 rounded-full bg-gold-gradient text-luxe-black font-bold text-xs sm:text-sm uppercase tracking-wider shadow-lg hover:scale-[1.01] transition-all flex items-center justify-center gap-2.5"
+            >
+              <i class="fa-solid fa-check-double"></i>
+              <span>Confirmer la commande sur le site</span>
+            </button>
+
+            <button
+              id="confirm-whatsapp-order-btn"
+              type="button"
+              class="w-full py-3.5 px-6 rounded-full bg-[#1F3528] hover:bg-[#274433] border border-[#25D366]/50 text-luxe-cream font-semibold text-xs sm:text-sm tracking-wide transition-all flex items-center justify-center gap-2.5"
+            >
+              <i class="fa-brands fa-whatsapp text-[#25D366] text-lg"></i>
+              <span>Commander en 1 clic via WhatsApp</span>
+            </button>
+          </div>
+        </form>
+      </div>
+
+      <!-- STEP 2: Luxury Order Confirmation Screen -->
+      <div id="checkout-success-view" class="hidden p-6 sm:p-8 max-h-[82vh] overflow-y-auto text-center space-y-6">
+        <div class="w-16 h-16 rounded-full bg-luxe-gold/15 border-2 border-luxe-gold text-luxe-gold flex items-center justify-center mx-auto text-2xl shadow-lg">
+          <i class="fa-solid fa-check"></i>
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-xs uppercase tracking-[0.25em] text-luxe-gold font-semibold">
+            Maison LuxeCoffee · Maroc
+          </span>
+          <h4 class="font-serif text-2xl sm:text-3xl font-bold text-luxe-cream">
+            Merci pour Votre Commande
+          </h4>
+          <p class="text-xs sm:text-sm text-luxe-muted max-w-md mx-auto">
+            Votre sélection est transmise à notre atelier de torréfaction. Un conseiller vous contactera par téléphone pour confirmer la livraison.
+          </p>
+        </div>
+
+        <!-- Unique Tracking Number Badge -->
+        <div class="inline-block px-6 py-3 rounded-2xl bg-luxe-black border border-luxe-gold/40">
+          <span class="text-[11px] uppercase tracking-widest text-luxe-muted block">Numéro de Suivi Unique</span>
+          <span id="order-tracking-number" class="font-cinzel text-xl sm:text-2xl font-bold text-luxe-gold tracking-wider">
+            #LC-00000
+          </span>
+        </div>
+
+        <!-- Complete Order Recap -->
+        <div id="order-confirmation-details" class="text-left p-5 rounded-2xl bg-luxe-black border border-white/10 space-y-3 text-xs sm:text-sm">
+          <!-- Populated dynamically by app.js -->
+        </div>
+
+        <div class="flex flex-col sm:flex-row gap-3 pt-2">
+          <button
+            id="close-success-modal-btn"
+            type="button"
+            class="w-full py-3.5 px-6 rounded-full bg-gold-gradient text-luxe-black font-bold text-xs sm:text-sm uppercase tracking-wider"
+          >
+            Continuer la visite
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Toast Notifications Container -->
+  <div id="toast-container" class="fixed bottom-5 right-5 z-50 space-y-2.5 pointer-events-none"></div>
+
+  <!-- Luxury Footer -->
+  <footer class="bg-luxe-black border-t border-luxe-gold/20 pt-14 pb-10 text-xs sm:text-sm text-luxe-muted">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10 pb-10 border-b border-white/10">
+        <!-- Brand Info -->
+        <div class="md:col-span-2 space-y-3">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-luxe-charcoal border border-luxe-gold/50 flex items-center justify-center">
+              <i class="fa-solid fa-mug-hot text-luxe-gold text-sm"></i>
+            </div>
+            <span class="font-cinzel text-xl font-bold tracking-[0.18em] text-gold-gradient">
+              LUXECOFFEE
+            </span>
+          </div>
+          <p class="text-luxe-muted max-w-md leading-relaxed">
+            Maison marocaine de cafés de spécialité, torréfiés à la commande et expédiés dans tout le Royaume. Grands crus d'origine unique et capsules compatibles Nespresso®.
+          </p>
+          <p class="text-xs text-luxe-gold">
+            <i class="fa-solid fa-location-dot mr-1.5"></i> Atelier de Torréfaction : Quartier Gauthier, Casablanca · Maroc
+          </p>
+        </div>
+
+        <!-- Collections -->
+        <div class="space-y-2.5">
+          <h3 class="font-cinzel text-xs uppercase tracking-[0.2em] text-luxe-cream font-bold mb-3">Collections</h3>
+          <ul class="space-y-2">
+            <li><a href="#catalogue" data-nav-filter="Tous" class="hover:text-luxe-gold transition-colors">Tous les Grands Crus</a></li>
+            <li><a href="#catalogue" data-nav-filter="Café en Grains" class="hover:text-luxe-gold transition-colors">Café en Grains (250g, 500g, 1kg)</a></li>
+            <li><a href="#catalogue" data-nav-filter="Café Moulu" class="hover:text-luxe-gold transition-colors">Café Moulu sur Mesure</a></li>
+            <li><a href="#catalogue" data-nav-filter="Capsules Compatibles Nespresso" class="hover:text-luxe-gold transition-colors">Capsules Compatibles Nespresso®</a></li>
+          </ul>
+        </div>
+
+        <!-- Service Client -->
+        <div class="space-y-2.5">
+          <h3 class="font-cinzel text-xs uppercase tracking-[0.2em] text-luxe-cream font-bold mb-3">Conciergerie</h3>
+          <ul class="space-y-2">
+            <li><i class="fa-solid fa-truck text-luxe-gold mr-2"></i>Livraison 30 MAD (Gratuite dès 300 MAD)</li>
+            <li><i class="fa-solid fa-hand-holding-dollar text-luxe-gold mr-2"></i>Paiement à la livraison ou Carte</li>
+            <li><i class="fa-brands fa-whatsapp text-luxe-gold mr-2"></i>Commande directe via WhatsApp</li>
+            <li><i class="fa-solid fa-clock text-luxe-gold mr-2"></i>Lun - Sam : 09h00 - 20h00</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-luxe-muted/70">
+        <p>© 2026 LuxeCoffee Maroc. Tous droits réservés. Devise officielle : Dirham Marocain (MAD).</p>
+        <p>Conçu avec passion pour les amateurs de haute gastronomie caféinée.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Main Application Script -->
+  <script src="app.js"></script>
+</body>
+</html>

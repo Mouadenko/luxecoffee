@@ -1,0 +1,287 @@
+/* ==========================================================================
+   LUXECOFFEE — Haute Torréfaction & Capsules d'Exception
+   Palette : #0F0F0F (Noir mat), #1A1A1A (Anthracite), #D4AF37 & #C59B27 (Or), #F5F2EB (Crème)
+   ========================================================================== */
+
+:root {
+  --bg-deep: #0F0F0F;
+  --bg-anthracite: #1A1A1A;
+  --bg-card: #151515;
+  --gold-primary: #D4AF37;
+  --gold-copper: #C59B27;
+  --gold-light: #F3E5AB;
+  --text-cream: #F5F2EB;
+  --text-muted: #A39E93;
+  --border-gold: rgba(212, 175, 55, 0.22);
+  --border-gold-hover: rgba(212, 175, 55, 0.65);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-deep);
+  color: var(--text-cream);
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-deep);
+  color: var(--text-cream);
+  overflow-x: hidden;
+  selection-background-color: var(--gold-primary);
+}
+
+::selection {
+  background-color: var(--gold-primary);
+  color: var(--bg-deep);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0F0F0F;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2A261D;
+  border-radius: 4px;
+  border: 1px solid rgba(212, 175, 55, 0.25);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--gold-copper);
+}
+
+/* Typography */
+.font-serif-luxury {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-cinzel {
+  font-family: 'Cinzel', Georgia, serif;
+}
+
+/* Gold Gradients & Shimmer */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #FFF3C4 0%, #D4AF37 50%, #C59B27 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gold-gradient {
+  background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+}
+
+.bg-gold-gradient:hover {
+  background: linear-gradient(135deg, #E5C349 0%, #D4AF37 100%);
+}
+
+/* Subtle Ambient Background Glow */
+.hero-glow {
+  background: radial-gradient(circle at 70% 30%, rgba(212, 175, 55, 0.14) 0%, rgba(197, 155, 39, 0.04) 40%, transparent 70%);
+}
+
+/* Luxury Card Styling */
+.product-card {
+  background: linear-gradient(180deg, #1A1A1A 0%, #121212 100%);
+  border: 1px solid rgba(212, 175, 55, 0.16);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.38s ease,
+              box-shadow 0.38s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(212, 175, 55, 0.55);
+  box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.85),
+              0 0 25px -5px rgba(212, 175, 55, 0.16);
+}
+
+.product-card .product-image {
+  transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product-card:hover .product-image {
+  transform: scale(1.06);
+}
+
+/* Option Selector Pills (Weight, Grind, Capsules) */
+.option-pill {
+  background-color: #0F0F0F;
+  border: 1px solid rgba(245, 242, 235, 0.14);
+  color: rgba(245, 242, 235, 0.78);
+  transition: all 0.22s ease;
+}
+
+.option-pill:hover {
+  border-color: rgba(212, 175, 55, 0.55);
+  color: #F5F2EB;
+}
+
+.option-pill.active {
+  background: linear-gradient(135deg, rgba(212, 175, 55, 0.22) 0%, rgba(197, 155, 39, 0.12) 100%);
+  border-color: #D4AF37;
+  color: #D4AF37;
+  font-weight: 600;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.18);
+}
+
+/* Category Filter Buttons */
+.filter-btn {
+  background-color: #1A1A1A;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  color: rgba(245, 242, 235, 0.8);
+  transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.filter-btn:hover {
+  border-color: rgba(212, 175, 55, 0.6);
+  color: #F5F2EB;
+  transform: translateY(-1px);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #D4AF37 0%, #C59B27 100%);
+  border-color: #D4AF37;
+  color: #0F0F0F;
+  font-weight: 700;
+  box-shadow: 0 8px 24px -6px rgba(212, 175, 55, 0.45);
+}
+
+/* Intensity Meter Segments */
+.intensity-segment {
+  height: 6px;
+  border-radius: 9999px;
+  transition: background-color 0.3s ease;
+}
+
+.intensity-segment.filled {
+  background: linear-gradient(90deg, #D4AF37, #C59B27);
+  box-shadow: 0 0 6px rgba(212, 175, 55, 0.4);
+}
+
+.intensity-segment.empty {
+  background-color: rgba(245, 242, 235, 0.12);
+}
+
+/* Slide-Over Cart Drawer */
+.cart-backdrop {
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.32s ease;
+}
+
+.cart-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cart-drawer {
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cart-drawer.open {
+  transform: translateX(0);
+}
+
+/* Modal Backdrop & Dialog */
+.modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.modal-backdrop.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-panel {
+  transform: scale(0.95) translateY(10px);
+  opacity: 0;
+  transition: transform 0.32s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.28s ease;
+}
+
+.modal-backdrop.open .modal-panel {
+  transform: scale(1) translateY(0);
+  opacity: 1;
+}
+
+/* Free Shipping Progress Bar Shimmer */
+.shipping-progress-bar {
+  background: linear-gradient(90deg, #C59B27 0%, #D4AF37 50%, #F3E5AB 100%);
+  background-size: 200% 100%;
+  animation: goldShimmer 2.8s infinite linear;
+  transition: width 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes goldShimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Price Pulse Animation on Dynamic Change */
+@keyframes pricePulse {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.09);
+    color: #FFF3C4;
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.price-updated {
+  animation: pricePulse 0.35s ease;
+}
+
+/* Form Input Focus */
+.luxe-input {
+  background-color: #121212;
+  border: 1px solid rgba(245, 242, 235, 0.15);
+  color: #F5F2EB;
+  transition: border-color 0.22s ease, box-shadow 0.22s ease;
+}
+
+.luxe-input:focus {
+  outline: none;
+  border-color: #D4AF37;
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.15);
+}
+
+/* Toast Notification */
+.toast-item {
+  animation: slideInUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
